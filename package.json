@@ -8,8 +8,12 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "bootstrap": "^5.2.2",
+    "bootstrap-vue": "^2.23.1",
     "core-js": "^3.8.3",
-    "vue": "^3.2.13",
+    "firebase": "^9.14.0",
+    "moment": "^2.29.4",
+    "vue": "^3.2.45",
     "vue-router": "^4.0.3"
   },
   "devDependencies": {
@@ -36,7 +40,9 @@
     "parserOptions": {
       "parser": "@babel/eslint-parser"
     },
-    "rules": {}
+    "rules": {
+      "vue/multi-word-component-names": "off"
+    }
   },
   "browserslist": [
     "> 1%",
