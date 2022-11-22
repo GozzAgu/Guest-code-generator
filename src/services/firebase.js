@@ -10,7 +10,7 @@ const firebaseConfig = {
   appId: "1:780078196383:web:084b3b9f6e7e12d722a4aa"
 };
 
-const fb = firebase.initializeApp(firebaseConfig);
-fb.firestore().settings({ timeStampsInSnapshots: true})
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+firebaseApp.firestore().settings({ timeStampsInSnapshots: true})
 
-export default fb.firestore();
+export default firebaseApp.firestore();
