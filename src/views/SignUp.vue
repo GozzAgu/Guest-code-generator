@@ -1,10 +1,14 @@
 <template>
     <div>
         <form @submit.prevent="signUp">
-            <h1>Sign up</h1>
-            <input type="text" placeholder="name" v-model="user.name"/>
-            <button>Sign Up</button>
+            <h1 class="h5 mb-3 fw-normal">Please sign up</h1>
+            <div class="form-floating">
+                <input v-model="user.name" type="text" class="form-control" id="floatingInput" placeholder="your name">
+                <label for="floatingInput">Your name</label>
+            </div>
             <p v-if="errorText" class="error">{{errorText}}</p>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+            <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
         </form>
     </div>
 </template>
@@ -36,12 +40,10 @@ const signUp = () => {
 
 <style scoped lang="scss">
 form {
-    border: 1px solid black;
     margin: 0 auto;
     padding: 70px;
     width: 300px;
     height: 200px;
-    border-radius: 5px;
     input {
         width: 100%;
         margin-bottom: 30px;
