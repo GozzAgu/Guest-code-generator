@@ -8,14 +8,14 @@
                 <div v-for="message in messages" :key="message" class="list-group-item list-group-item-action py-3 lh-sm" aria-current="true">
                     <div class="d-flex w-100 align-items-center justify-content-between">
                     <strong class="mb-1">{{ username }}</strong>
-                    <small class="text-muted">Wed</small>
+                    <small class="text-muted">{{ time }}</small>
                     </div>
-                    <div class="col-10 mb-1 small text-start">{{ message }}</div>
+                    <div class="col-10 mb-1 small text-start">{{ message.content }}</div>
                 </div>
             </div>
         </div>
         <form @submit.prevent="submit">
-            <input v-model="message" class="form-control" placeholder="Write a message"/>
+            <input v-model="message.content" class="form-control" placeholder="Write a message"/>
         </form>
     </div>
 </template>
@@ -23,14 +23,21 @@
 <script setup>
 import { ref } from 'vue'
 
+const date =  ref(new Date());
+const time = ref(date.value.getHours() + ':' + date.value.getMinutes() + ':' + date.value.getSeconds());
+
 const username = ref('Goz');
 const messages = ref([]);
-const message = ref('');
+const message = ref({
+    content: '',
+    time: time.value
+});
 
 const submit = () => {
     messages.value.push(message.value);
     message.value = ''
-}
+};
+
 </script>
 
 <style scoped>
