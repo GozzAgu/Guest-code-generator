@@ -1,14 +1,14 @@
 <template>
-    <div>
-        <form @submit.prevent="signUp">
-            <h1 class="h5 mb-3 fw-normal">Please sign up</h1>
-            <div class="form-floating">
-                <input v-model="user.name" type="text" class="form-control" id="floatingInput" placeholder="your name">
-                <label for="floatingInput">Your name</label>
+    <div class="bg">
+        <form @submit.prevent="signUp" class="form">
+            <h1 class="h1 mb-3 fw-normal">Welcome</h1>
+            <div class="name">
+                <input v-model="name" placeholder="Write your name..." type="text" class="form-control" id="floatingInput">
             </div>
             <p v-if="errorText" class="error">{{errorText}}</p>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-            <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
+            <button class="w-100 btn btn-sm btn-primary" type="submit">
+                Enter Chat
+            </button>
         </form>
     </div>
 </template>
@@ -18,18 +18,16 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router';
 
 const router = useRouter()
-const user = ref({
-    name: ''
-})
+const name = ref('')
 
-const errorText = ref(null)
+const errorText = ref(false)
 
 const signUp = () => {
-    if(user.value.name) {
+    if(name.value.length > 0) {
         router.push({ 
             name: 'chat', 
             params: {
-                name: user.value.name
+                name: name.value
             }
         })
     } else {
@@ -39,20 +37,26 @@ const signUp = () => {
 </script>
 
 <style scoped lang="scss">
-form {
-    margin: 0 auto;
-    padding: 70px;
-    width: 300px;
-    height: 200px;
-    input {
-        width: 100%;
-        margin-bottom: 30px;
-    }
-    button {
-        width: 100%;
-    }
-    .error {
-        color: red;
+.bg {
+    background-color: rgb(209, 209, 209);
+    height: 1000px;
+    form {
+        margin: 0 auto;
+        padding-top: 200px;
+        width: 300px;
+        height: 200px;
+        input {
+            width: 100%;
+            margin-bottom: 30px;
+            margin-top: 30px
+        }
+        button {
+            width: 100%;
+        }
+        .error {
+            color: red;
+        }
     }
 }
+
 </style>
