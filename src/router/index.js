@@ -20,9 +20,6 @@ const routes = [
     name: 'chat',
     component: Chat,
     props: true,
-    beforeEnter: (to) => {
-      console.log(to.params.name)
-    }
   }
 ]
 
