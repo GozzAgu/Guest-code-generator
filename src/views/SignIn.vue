@@ -39,7 +39,7 @@ const signIn = () => {
     .then((data) => {
         console.log(data);
         console.log(auth.currentUser)
-        router.push('/chat')
+        router.push('/home')
     })
     .catch((e) => {
         console.log(e.code);

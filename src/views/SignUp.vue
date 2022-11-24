@@ -39,7 +39,7 @@ const signUp = () => {
     createUserWithEmailAndPassword(getAuth(), store.email, store.password)
     .then((data) => {
         console.log(data);
-        router.push('/chat')
+        router.push('/home')
     })
     .catch((e) => {
         console.log(e)
