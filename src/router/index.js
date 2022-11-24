@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Signup from '../views/SignUp.vue'
 import Signin from '../views/SignIn.vue'
 import Chat from '../views/Chat.vue'
+import ForgotPassword from '../views/ForgotPassword.vue'
 
 const routes = [
   // {
@@ -28,7 +29,12 @@ const routes = [
     component: Chat,
     props: true,
     requiresAuth: true
-  }
+  },
+  {
+    path: '/forgot',
+    name: 'forgot',
+    component: ForgotPassword
+  },
 ]
 
 const router = createRouter({
