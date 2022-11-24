@@ -3,7 +3,7 @@
         <div>
             <img class="logo" src="@/assets/Chat-Logo-PNG-Free-Download-removebg-preview.png"/>
         </div>
-        <form @submit.prevent="signUp" class="form">
+        <form @submit.prevent="signInWithGoogle" class="form">
             <h1 class="h1 mb-3 fw-normal">Welcome</h1>
             <div class="name">
                 <input v-model="store.name" placeholder="Your name..." type="text" class="form-control" id="floatingInput">
@@ -12,11 +12,8 @@
             </div>
 
             <p v-if="errorText" class="error">{{errorText}}</p>
-            <button class="w-100 btn btn-sm btn-info text-light" type="submit">
+            <button @click="signUp" class="w-100 btn btn-sm btn-info text-light" type="submit">
                 Sign Up 
-            </button>
-            <button class="w-100 btn btn-sm btn-secondary" type="submit">
-                Sign in with Google 
             </button>
         </form>
     </div>
@@ -42,13 +39,6 @@ const signUp = () => {
     .catch((e) => {
         console.log(e)
     })
-    // if(store.name && store.password) {
-    //     router.push({ 
-    //         name: 'chat',
-    //     })
-    // } else {
-    //     errorText.value = 'Please enter a name and password in the text field.'
-    // }
 }
 </script>
 
