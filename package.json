@@ -14,9 +14,11 @@
     "core-js": "^3.8.3",
     "firebase": "^9.14.0",
     "moment": "^2.29.4",
+    "pinia": "^2.0.26",
     "vue": "^3.2.45",
     "vue-chat-scroll": "^1.4.0",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
