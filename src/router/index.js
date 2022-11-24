@@ -5,6 +5,7 @@ import Signup from '../views/SignUp.vue'
 import Signin from '../views/SignIn.vue'
 import Chat from '../views/Chat.vue'
 import ForgotPassword from '../views/ForgotPassword.vue'
+import HomePage from '../views/HomePage.vue'
 
 const routes = [
   // {
@@ -14,7 +15,7 @@ const routes = [
   // },
 
   {
-    path: '/',
+    path: '/signup',
     name: 'signup',
     component: Signup,
   },
@@ -34,6 +35,11 @@ const routes = [
     path: '/forgot',
     name: 'forgot',
     component: ForgotPassword
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: HomePage
   },
 ]
 
