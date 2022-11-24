@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-        <button @click="handlesignOut" v-if="isLoggedIn">Sign Out</button>
         <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white" style="width: 380px;">
             <div class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
                 <h1 class="fs-5 fw-semibold">{{ store.name }}</h1>
@@ -22,29 +21,15 @@
 </template>
 
 <script setup>
-import { ref, defineProps, onMounted } from 'vue'
+import { ref, defineProps } from 'vue'
 import { useStore } from '@/store/store';
-import { useRouter } from 'vue-router';
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 
-const isLoggedIn = ref(false);
 const store = useStore();
-const router = useRouter();
 const props = defineProps(['name'])
 const messages = ref([]);
 const message = ref('');
 
-let auth;
-onMounted(() => {
-    auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-        if(user) {
-            isLoggedIn.value = true;
-        } else {
-            isLoggedIn.value = false;
-        }
-    })
-})
+
 const getTime = () => {
     const date =  ref(new Date());
     const time = ref(date.value.getHours() + ':' + date.value.getMinutes() + ':' + date.value.getSeconds());
@@ -60,12 +45,7 @@ const sendMsg = () => {
     props.name
 };
 
-const handlesignOut = () => {
-    signOut(auth)
-    .then(() => {
-        router.push('/');
-    })
-}
+
 
 </script>
 
