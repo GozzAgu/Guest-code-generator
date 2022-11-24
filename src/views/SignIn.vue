@@ -11,13 +11,13 @@
                 <input v-model="store.password" placeholder="Your password..." type="password" class="form-control" id="floatingInput">
             </div>
 
-            <p v-if="errorText" class="error">{{errorText}}</p>
             <button class="w-100 btn btn-sm btn-info text-light" type="submit">
                 Sign In 
             </button>
             <router-link to="/forgot">
                 <p>Forgot password? </p>
             </router-link>
+            <p v-if="errorText" class="error">{{errorText}}</p>
         </form>
     </div>
 </template>
