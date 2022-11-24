@@ -1,5 +1,8 @@
 <template>
     <div class="bg">
+        <div>
+            <img class="logo" src="@/assets/Chat-Logo-PNG-Free-Download-removebg-preview.png"/>
+        </div>
         <form @submit.prevent="signUp" class="form">
             <h1 class="h1 mb-3 fw-normal">Welcome</h1>
             <div class="name">
@@ -9,7 +12,7 @@
             </div>
 
             <p v-if="errorText" class="error">{{errorText}}</p>
-            <button class="w-100 btn btn-sm btn-primary" type="submit">
+            <button class="w-100 btn btn-sm btn-info text-light" type="submit">
                 Sign Up 
             </button>
             <button class="w-100 btn btn-sm btn-secondary" type="submit">
@@ -23,6 +26,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router';
 import { useStore } from '@/store/store';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 
 const router = useRouter()
 const store = useStore()
@@ -30,13 +34,21 @@ const store = useStore()
 const errorText = ref(false)
 
 const signUp = () => {
-    if(store.name && store.password) {
-        router.push({ 
-            name: 'chat',
-        })
-    } else {
-        errorText.value = 'Please enter a name and password in the text field.'
-    }
+    createUserWithEmailAndPassword(getAuth(), store.email, store.password)
+    .then((data) => {
+        console.log(data);
+        router.push('/chat')
+    })
+    .catch((e) => {
+        console.log(e)
+    })
+    // if(store.name && store.password) {
+    //     router.push({ 
+    //         name: 'chat',
+    //     })
+    // } else {
+    //     errorText.value = 'Please enter a name and password in the text field.'
+    // }
 }
 </script>
 
@@ -44,9 +56,13 @@ const signUp = () => {
 .bg {
     background-color: rgb(209, 209, 209);
     height: 1000px;
+    .logo {
+        width: 100px;
+        padding-top: 100px;
+    }
     form {
         margin: 0 auto;
-        padding-top: 200px;
+        padding-top: 50px;
         width: 300px;
         height: 200px;
         input {
