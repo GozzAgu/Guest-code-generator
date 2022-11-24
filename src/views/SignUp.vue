@@ -3,11 +3,13 @@
         <form @submit.prevent="signUp" class="form">
             <h1 class="h1 mb-3 fw-normal">Welcome</h1>
             <div class="name">
-                <input v-model="name" placeholder="Write your name..." type="text" class="form-control" id="floatingInput">
+                <input v-model="store.name" placeholder="Your name..." type="text" class="form-control" id="floatingInput">
+                <input v-model="store.password" placeholder="Your password..." type="text" class="form-control" id="floatingInput">
             </div>
+
             <p v-if="errorText" class="error">{{errorText}}</p>
             <button class="w-100 btn btn-sm btn-primary" type="submit">
-                Enter Chat
+                Sign Up 
             </button>
         </form>
     </div>
@@ -16,19 +18,17 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router';
+import { useStore } from '@/store/store';
 
 const router = useRouter()
-const name = ref('')
+const store = useStore()
 
 const errorText = ref(false)
 
 const signUp = () => {
-    if(name.value.length > 0) {
+    if(store.name.length > 0) {
         router.push({ 
-            name: 'chat', 
-            params: {
-                name: name.value
-            }
+            name: 'chat',
         })
     } else {
         errorText.value = 'Please enter a name in the text field'
