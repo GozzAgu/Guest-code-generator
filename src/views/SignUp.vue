@@ -15,6 +15,11 @@
             <button @click="signUp" class="w-100 btn btn-sm btn-info text-light" type="submit">
                 Sign Up 
             </button>
+            <router-link to="/signin">
+                <button class="w-100 btn btn-sm btn-secondary" type="submit">
+                    Already have an account?
+                </button>
+            </router-link>
         </form>
     </div>
 </template>

@@ -15,6 +15,9 @@
             <button class="w-100 btn btn-sm btn-info text-light" type="submit">
                 Sign In 
             </button>
+            <router-link to="/forgot">
+                <p>Forgot password? </p>
+            </router-link>
         </form>
     </div>
 </template>
