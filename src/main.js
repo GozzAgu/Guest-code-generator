@@ -4,9 +4,6 @@ import App from './App.vue';
 import router from './router';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
-// import Vue from 'vue';
-// import VueChatScroll from 'vue-chat-scroll';
-
 import { initializeApp } from 'firebase/app'
 
 const config = {
@@ -26,4 +23,3 @@ createApp(App)
 
 initializeApp(config);
 
-// Vue.use(VueChatScroll);
