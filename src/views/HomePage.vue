@@ -24,7 +24,7 @@
         </div>
         <CodeModal v-if="showModal"/>
 
-        <h3 class="mt-5 text-start"><i class="ri-draft-line"></i> Guest Information </h3>
+        <h3 class="mt-5 text-start"><i class="ri-draft-line"></i> Guest Log </h3>
 
         <div class="mt-1">
             <table class="table table-striped table-hover">
