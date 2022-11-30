@@ -14,6 +14,11 @@
             <button class="w-100 btn btn-sm btn-info text-light" type="submit">
                 Sign In 
             </button>
+            <router-link to="/signup">
+                <button class="w-100 btn btn-sm btn-info text-light" type="submit">
+                    Don't have an account ?
+                </button>
+            </router-link>
             <router-link to="/forgot">
                 <p>Forgot password? </p>
             </router-link>
@@ -27,12 +32,9 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router';
 import { useStore } from '@/store/store';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-
 const router = useRouter()
 const store = useStore()
-
 const errorText = ref(false)
-
 const signIn = () => {
     const auth = getAuth(); 
     signInWithEmailAndPassword(auth, store.name, store.email, store.password)
@@ -44,22 +46,21 @@ const signIn = () => {
     .catch((e) => {
         console.log(e.code);
         switch(e.code) {
-            case 'auth/invalid-email':
-                errorText.value = 'Invalid email';
-                break;
-            case 'auth/user-not-found':
-                errorText.value = 'No User';
-                break;
-            case 'auth/wrong-password':
-                errorText.value = 'Incorrect password';
-                break;
+            // case 'auth/invalid-email':
+            //     errorText.value = 'Invalid email';
+            //     break;
+            // case 'auth/user-not-found':
+            //     errorText.value = 'No User';
+            //     break;
+            // case 'auth/wrong-password':
+            //     errorText.value = 'Incorrect password';
+            //     break;
             default:
                 errorText.value = 'Incorrect email or password';
                 break;
         }
     })
 };
-
 </script>
 
 <style scoped lang="scss">
