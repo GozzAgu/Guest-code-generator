@@ -39,7 +39,9 @@ const signUp = () => {
     createUserWithEmailAndPassword(getAuth(), store.email, store.password)
     .then((data) => {
         console.log(data);
-        router.push('/home')
+        router.push({name:'home', 
+                    params: {name: store.name}
+        })
     })
     .catch((e) => {
         console.log(e)
