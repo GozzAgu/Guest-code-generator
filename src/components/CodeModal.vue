@@ -1,24 +1,67 @@
 <template>
-    <div class="card p-3 col-8 col-lg-4 ms-auto me-auto">
+    <div class="overlay" @click="hideForm"></div>
+    <div class="mod card p-3 col-8 col-lg-4 ms-auto me-auto">
+        <button class="btn btn-danger col-2 ms-auto" @click="close">close</button>
         <h5>Generate your code</h5>
-        <input placeholder="Guest's name" v-model="newVisitor.name"/>
-        <h3>code: {{ code }}</h3>
-        <button class="btn btn-light col-3 col-lg-2 ms-auto me-auto" @click="getCode"><i class="ri-settings-4-fill"></i></button>
+        <input class="col-5 ms-auto me-auto mt-3 mb-3" placeholder="Guest's name" v-model="newVisitor.name"/>
+        <h3>code: {{ newVisitor.code }}</h3>
+        <button class="btn btn-light col-3 col-lg-2 mt-3 mb-3 ms-auto me-auto" @click="getCode"><i class="ri-settings-4-fill"></i></button>
+        <!-- <h1>{{ newVisitor.name }}</h1> -->
     </div> 
 </template>
 
 <script setup>
 import { ref, defineEmits } from 'vue'
 
-const emit = defineEmits(['new-visitor'])
+const emit = defineEmits(['onSubmit', 'close'])
 const code = ref('');
 
 const newVisitor = ref({
-    name: ''
+        status: '',
+        name: '',
+        code: '',
+        gender: '',
+        time: ''
 });
 
+const getTime = () => {
+    const date =  ref(new Date());
+    const time = ref(date.value.getHours() + ':' + date.value.getMinutes() + ':' + date.value.getSeconds());
+    return time
+};
+
 const getCode = () => {
-    code.value = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
-    emit('new-visitor', newVisitor.value.name)
+    if(newVisitor.value) {
+        code.value = Math.ceil(Math.random() * 10000) + 1;
+
+        newVisitor.value.code = code.value;
+        newVisitor.value.time = getTime();
+
+        emit('onSubmit', newVisitor.value);
+    }
+}
+
+const close = () => {
+    emit('close')
 }
 </script>
+
+<style scoped lang="scss">
+
+.overlay{
+    position: fixed;
+    background-color:rgba(37, 39, 51, 0.2);
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    z-index: 1;
+    cursor: pointer;
+    
+}
+.mod {
+    position: fixed;
+    background-color: white;
+    z-index: 1;
+}
+</style>
