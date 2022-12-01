@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="d-flex">
-            <button @click="showModal = true" class="btn btn-light m-2 col-3 col-lg-2">
+            <button @click="showModal = true" class=" shadow-sm btn btn-light m-2 col-3 col-lg-2">
                 Gate Pass
             </button>
         </div>
@@ -38,7 +38,7 @@
                     </tr>
                 </thead>
                 <tbody v-for="visitor in visitors" :key="visitor">
-                    <tr>
+                    <tr class="mb-5">
                         <td>{{ visitor.status }}</td>
                         <td>{{ visitor.name }}</td>
                         <td>{{ visitor.code }}</td>
@@ -75,30 +75,7 @@ onMounted(() => {
 
 const showModal = ref(false)
 
-const visitors = ref([
-    {
-        status: 'checked in',
-        name: 'Gozie',
-        code: '4534',
-        gender: 'Male',
-        time: '10:04'
-    },
-    {
-        status: 'checked in',
-        name: 'Lizbeth',
-        code: '8976',
-        gender: 'Female',
-        time: '14:44'
-    },
-    {
-        status: 'checked out',
-        name: 'Gozie',
-        code: '6654',
-        gender: 'Male',
-        time: '11:29'
-    },
-    
-]);
+const visitors = ref([]);
 
 const isLoggedIn = ref(false);
 const router = useRouter();

@@ -1,11 +1,11 @@
 <template>
     <div class="overlay" @click="hideForm"></div>
-    <div class="mod card p-3 col-8 col-lg-4 ms-auto me-auto">
+    <div class="mod shadow-lg card p-3 col-8 col-lg-4 ms-auto me-auto">
         <button class="btn btn-danger col-2 ms-auto" @click="close">close</button>
         <h5>Generate your code</h5>
         <input class="col-5 ms-auto me-auto mt-3 mb-3" placeholder="Guest's name" v-model="newVisitor.name"/>
         <h3>code: {{ newVisitor.code }}</h3>
-        <button class="btn btn-light col-3 col-lg-2 mt-3 mb-3 ms-auto me-auto" @click="getCode"><i class="ri-settings-4-fill"></i></button>
+        <button class=" shadow btn btn-light col-3 col-lg-2 mt-3 mb-3 ms-auto me-auto" @click="getCode"><i class="ri-settings-4-fill"></i></button>
         <!-- <h1>{{ newVisitor.name }}</h1> -->
     </div> 
 </template>
