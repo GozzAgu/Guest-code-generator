@@ -4,9 +4,11 @@
         <button class="btn btn-danger col-2 ms-auto" @click="close">close</button>
         <h5>Generate your code</h5>
         <input class="col-5 ms-auto me-auto mt-3 mb-3" placeholder="Guest's name" v-model="newVisitor.name"/>
-        <h3>code: {{ newVisitor.code }}</h3>
+        <select v-model="selectedOption"> 
+            <option v-for="option in options" :key="option">{{option.text}}</option>
+        </select>
+        <h3>Code: {{ newVisitor.code }}</h3>
         <button class=" shadow btn btn-light col-3 col-lg-2 mt-3 mb-3 ms-auto me-auto" @click="getCode"><i class="ri-settings-4-fill"></i></button>
-        <!-- <h1>{{ newVisitor.name }}</h1> -->
     </div> 
 </template>
 
@@ -16,6 +18,15 @@ import { ref, defineEmits } from 'vue'
 const emit = defineEmits(['onSubmit', 'close'])
 const code = ref('');
 
+const selectedOption = ref('')
+const options = ref([
+    {
+        text: 'Male'
+    },
+    {
+        text: 'Female'
+    }
+])
 const newVisitor = ref({
         status: '',
         name: '',
