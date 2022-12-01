@@ -31,7 +31,8 @@ const getTime = () => {
 };
 
 const getCode = () => {
-    if(newVisitor.value) {
+    if(newVisitor.value.name.length > 3) {
+        //Guest's name should be greater than 2 characters
         code.value = Math.ceil(Math.random() * 10000) + 1;
 
         newVisitor.value.code = code.value;
