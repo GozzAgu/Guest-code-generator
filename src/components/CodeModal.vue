@@ -5,7 +5,7 @@
         <h5>Generate your code</h5>
         <input class="col-5 ms-auto me-auto mt-3 mb-3" placeholder="Guest's name" v-model="newVisitor.name"/>
         <select v-model="selectedOption"> 
-            <option v-for="option in options" :key="option">{{option.text}}</option>
+            <option v-for="option in options" :key="option">{{ option.text }}</option>
         </select>
         <h3>Code: {{ newVisitor.code }}</h3>
         <button class=" shadow btn btn-light col-3 col-lg-2 mt-3 mb-3 ms-auto me-auto" @click="getCode"><i class="ri-settings-4-fill"></i></button>
