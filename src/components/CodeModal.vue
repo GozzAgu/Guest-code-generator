@@ -1,7 +1,7 @@
 <template>
     <div class="overlay" @click="hideForm"></div>
     <div class="mod shadow-lg card p-3 col-8 col-lg-4 ms-auto me-auto">
-        <button class="btn btn-danger col-2 ms-auto" @click="close">close</button>
+        <button class="btn btn-danger ms-auto" @click="close">close</button>
         <h5>Generate your guest's code</h5>
         <label>Name</label>
         <input class="col-5 ms-auto me-auto mb-3" v-model="newVisitor.name"/>
@@ -55,10 +55,10 @@ const getCode = () => {
 
         emit('onSubmit', newVisitor.value);
     }
-
-    // code.value = '',
-    // newVisitor.value = '',
-    // selected.value = ''
+    code.value = '',
+    newVisitor.value = '',
+    selected.value = ''
+   
 }
 
 const close = () => {
