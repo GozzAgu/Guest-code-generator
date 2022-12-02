@@ -2,10 +2,10 @@
     <div class="overlay" @click="hideForm"></div>
     <div class="mod shadow-lg card p-3 col-8 col-lg-4 ms-auto me-auto">
         <button class="btn btn-danger col-2 ms-auto" @click="close">close</button>
-        <h5>Generate your code</h5>
-        <label>guest's name</label>
+        <h5>Generate your guest's code</h5>
+        <label>Name</label>
         <input class="col-5 ms-auto me-auto mb-3" v-model="newVisitor.name"/>
-        <label>gender</label>
+        <label>Gender</label>
         <select v-model="selected" class="col-5 ms-auto me-auto mb-3"> 
             <option v-for="option in options" :key="option">{{ option.text }}</option>
         </select>
@@ -32,7 +32,7 @@ const options = ref([
     }
 ])
 const newVisitor = ref({
-        status: '',
+        // status: '',
         name: '',
         code: '',
         gender: '',
