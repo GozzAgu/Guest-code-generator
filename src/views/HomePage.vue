@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="row col-12 col-lg-6 ms-auto me-auto">
+        <div class="row col-12 col-lg-6 ms-auto me-auto mb-4">
             <div class="card p-2 mt-5 shadow">
                 <figure class="p-3 mb-0">
                     <blockquote class="blockquote">
