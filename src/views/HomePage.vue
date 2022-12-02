@@ -1,31 +1,30 @@
 <template>
     <div class="container">
         <div class="row col-12 col-lg-6 ms-auto me-auto">
-            <div class="card p-2 mt-5">
+            <div class="card p-2 mt-5 shadow">
                 <figure class="p-3 mb-0">
                     <blockquote class="blockquote">
                         <p>Welcome, {{ store.name }} </p>
-                        <router-link to="/chat"
-                        >
-                            <img class="logo" src="@/assets/Chat-Logo-PNG-Free-Download-removebg-preview.png"/>
-                        </router-link>
                     </blockquote>
                 </figure>
                 <button  v-if="isLoggedIn" @click="handlesignOut" class="btn btn-secondary text-light col-3 ms-auto">Sign Out</button>
                 <router-link to="/signin" v-else>
-                    <button class="col-4 btn btn-secondary text-light col-3 ms-auto">Sign In</button>
+                    <button class="col-3 btn btn-secondary text-light ms-auto mb-3">Sign In</button>
                 </router-link>
             </div>
         </div>
         
-        <div class="d-flex">
-            <button @click="showModal = true" class="shadow-sm btn btn-light mt-3 mb-3 col-3 col-lg-2">
+        <div class="d-flex justify-content-between">
+            <button @click="showModal = true" class="shadow-sm btn btn-light mt-3 mb-3 col-4 col-lg-2">
                 + New Guest
             </button>
+            <router-link to="/chat" class="mt-4">
+                <i class="ri-chat-3-fill"></i>
+            </router-link>
         </div>
 
         <div class="mt-3 border-bottom">
-            <h3>You've had {{ visitors.length }} guest(s) so far!</h3>
+            <h3>Total Guests ({{ visitors.length }}) </h3>
         </div>
 
         <CodeModal @close="showModal = false" v-if="showModal" @onSubmit="newGuest"/>
