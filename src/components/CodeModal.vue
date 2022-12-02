@@ -1,14 +1,17 @@
 <template>
     <div class="overlay" @click="hideForm"></div>
     <div class="mod shadow-lg card p-3 col-8 col-lg-4 ms-auto me-auto">
-        <button class="btn btn-danger ms-auto" @click="close">close</button>
-        <h5>Generate your guest's code</h5>
-        <label>Name</label>
-        <input class="col-5 ms-auto me-auto mb-3" v-model="newVisitor.name"/>
-        <label>Gender</label>
-        <select v-model="selected" class="col-5 ms-auto me-auto mb-3"> 
-            <option v-for="option in options" :key="option">{{ option.text }}</option>
-        </select>
+        <div class="d-flex mb-2">
+            <h6 class="mt-2">Generate guest code</h6>
+            <button class="btn btn-danger ms-auto mb-3" @click="close">close</button>
+        </div>
+        <div class="d-flex">
+            <input placeholder="Guest name..." class="col-5 ms-auto me-auto mb-3" v-model="newVisitor.name"/>
+            <select v-model="selected" class="col-5 ms-auto me-auto mb-3"> 
+                <option value="" disabled selected hidden>Gender</option>
+                <option v-for="option in options" :key="option">{{ option.text }}</option>
+            </select>
+        </div>
         <h3>Code: {{ newVisitor.code }}</h3>
         <button class=" shadow btn btn-light col-3 col-lg-2 mt-3 mb-3 ms-auto me-auto" @click="getCode"><i class="ri-settings-4-fill"></i></button>
     </div> 

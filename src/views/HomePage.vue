@@ -19,7 +19,7 @@
         </div>
         
         <div class="d-flex">
-            <button @click="showModal = true" class=" shadow-sm btn btn-light m-2 col-3 col-lg-2">
+            <button @click="showModal = true" class="shadow-sm btn btn-light mt-3 mb-3 col-3 col-lg-2">
                 + New Guest
             </button>
         </div>
