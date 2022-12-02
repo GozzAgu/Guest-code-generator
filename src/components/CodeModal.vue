@@ -13,7 +13,7 @@
             </select>
         </div>
         <h3>Code: {{ newVisitor.code }}</h3>
-        <button class=" shadow btn btn-light col-3 col-lg-2 mt-3 mb-3 ms-auto me-auto" @click="getCode"><i class="ri-settings-4-fill"></i></button>
+        <button class="shadow btn btn-primary col-3 col-lg-2 mt-3 mb-3 ms-auto me-auto" @click="getCode"><i class="ri-gradienter-fill"></i></button>
     </div> 
 </template>
 
@@ -57,11 +57,8 @@ const getCode = () => {
         newVisitor.value.gender = selected.value;
 
         emit('onSubmit', newVisitor.value);
+        emit('close')
     }
-    code.value = '',
-    newVisitor.value = '',
-    selected.value = ''
-   
 }
 
 const close = () => {
