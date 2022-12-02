@@ -3,8 +3,10 @@
     <div class="mod shadow-lg card p-3 col-8 col-lg-4 ms-auto me-auto">
         <button class="btn btn-danger col-2 ms-auto" @click="close">close</button>
         <h5>Generate your code</h5>
-        <input class="col-5 ms-auto me-auto mt-3 mb-3" placeholder="Guest's name" v-model="newVisitor.name"/>
-        <select v-model="selectedOption"> 
+        <label>guest's name</label>
+        <input class="col-5 ms-auto me-auto mb-3" v-model="newVisitor.name"/>
+        <label>gender</label>
+        <select v-model="selected" class="col-5 ms-auto me-auto mb-3"> 
             <option v-for="option in options" :key="option">{{ option.text }}</option>
         </select>
         <h3>Code: {{ newVisitor.code }}</h3>
@@ -18,12 +20,14 @@ import { ref, defineEmits } from 'vue'
 const emit = defineEmits(['onSubmit', 'close'])
 const code = ref('');
 
-const selectedOption = ref('')
+const selected = ref('')
 const options = ref([
     {
+        id: 1,
         text: 'Male'
     },
     {
+        id: 2,
         text: 'Female'
     }
 ])
@@ -43,11 +47,11 @@ const getTime = () => {
 
 const getCode = () => {
     if(newVisitor.value.name.length > 2) {
-        //Guest's name should be greater than 2 characters
         code.value = Math.ceil(Math.random() * 10000) + 1;
 
         newVisitor.value.code = code.value;
         newVisitor.value.time = getTime();
+        newVisitor.value.gender = selected.value;
 
         emit('onSubmit', newVisitor.value);
     }
