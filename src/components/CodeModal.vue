@@ -55,6 +55,10 @@ const getCode = () => {
 
         emit('onSubmit', newVisitor.value);
     }
+
+    // code.value = '',
+    // newVisitor.value = '',
+    // selected.value = ''
 }
 
 const close = () => {
