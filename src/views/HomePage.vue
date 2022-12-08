@@ -47,11 +47,11 @@
                 <tbody v-for="(visitor, index) in filterVisitors" :key="visitor">
                     <tr class="mb-5">
                         <!-- <td>{{ visitor.status }}</td> -->
-                        <td>{{ visitor.name }}</td>
-                        <td>{{ visitor.code }}</td>
-                        <td>{{ visitor.gender }}</td>
-                        <td>{{ visitor.time}}</td>
-                        <button class="btn btn-danger" @click="del(index)">Delete</button>
+                        <td class="pt-3">{{ visitor.name }}</td>
+                        <td class="pt-3">{{ visitor.code }}</td>
+                        <td class="pt-3">{{ visitor.gender }}</td>
+                        <td class="pt-3">{{ visitor.time}}</td>
+                        <td> <button class="btn" @click="del(index)"><i class="ri-delete-bin-6-fill fs-9"></i></button></td>
                     </tr>
                 </tbody>
                 
