@@ -15,8 +15,8 @@
         </div>
         
         <div class="d-flex justify-content-between">
-            <button @click="showModal = true" class="shadow-sm btn btn-light mt-3 mb-3 col-4 col-lg-2">
-                + New Guest
+            <button @click="showModal = true" class="shadow-sm btn btn-light mt-3 mb-3 col-4 col-lg-2 text-secondary">
+                <i class="ri-user-add-fill"></i> New Guest
             </button>
             <router-link to="/chat" class="mt-4">
                 <i class="ri-chat-3-fill"></i>
@@ -29,14 +29,14 @@
 
         <CodeModal @close="showModal = false" v-if="showModal" @onSubmit="newGuest"/>
 
-        <h3 class="mt-5 text-start"><i class="ri-draft-line text-primary"></i> Guest Log </h3>
-        <input v-model="search" class="search mb-2" placeholder="search for guest..."/>
+        <h3 class="mt-5 mb-4 text-start"><i class="ri-draft-line text-primary"></i> Guest Log </h3>
+        <input v-model="search" class="search mb-4" placeholder="search for guest..."/>
 
         <div class="mt-1 shadow">
             <table class="table table-striped table-hover">
                 <thead class="bg-secondary text-light">
                     <tr>
-                    <!-- <th scope="col">Status</th> -->
+                    <th scope="col"></th>
                     <th scope="col">Name</th>
                     <th scope="col">Code</th>
                     <th scope="col">Gender</th>
@@ -46,7 +46,7 @@
                 </thead>
                 <tbody v-for="(visitor, index) in filterVisitors" :key="visitor">
                     <tr class="mb-5">
-                        <!-- <td>{{ visitor.status }}</td> -->
+                        <td class="pt-3"><input type="checkbox"/></td>
                         <td class="pt-3">{{ visitor.name }}</td>
                         <td class="pt-3">{{ visitor.code }}</td>
                         <td class="pt-3">{{ visitor.gender }}</td>

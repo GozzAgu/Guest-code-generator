@@ -3,7 +3,7 @@
     <div class="mod shadow-lg card p-3 col-8 col-lg-4 ms-auto me-auto">
         <div class="d-flex mb-2">
             <h6 class="mt-2">Generate guest code</h6>
-            <button class="btn btn-danger ms-auto mb-3" @click="close">close</button>
+            <i @click="close" class="ri-close-circle-fill ms-auto fs-3 text-danger"></i>
         </div>
         <div class="d-flex">
             <input placeholder="Guest name..." class="col-5 ms-auto me-auto mb-3" v-model="newVisitor.name"/>
@@ -13,7 +13,7 @@
             </select>
         </div>
         <h3>Code: {{ newVisitor.code }}</h3>
-        <button class="shadow btn btn-primary col-3 col-lg-2 mt-3 mb-3 ms-auto me-auto" @click="getCode"><i class="ri-gradienter-fill"></i></button>
+        <i @click="getCode" class="ri-add-circle-fill fs-1 text-primary"></i>
     </div> 
 </template>
 
