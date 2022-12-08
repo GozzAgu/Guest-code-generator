@@ -29,7 +29,7 @@
 
         <CodeModal @close="showModal = false" v-if="showModal" @onSubmit="newGuest"/>
 
-        <h3 class="mt-5 text-start"><i class="ri-draft-line"></i> Guest Log </h3>
+        <h3 class="mt-5 text-start"><i class="ri-draft-line text-primary"></i> Guest Log </h3>
         <input v-model="search" class="search mb-2" placeholder="search for guest..."/>
 
         <div class="mt-1 shadow">
@@ -51,7 +51,7 @@
                         <td class="pt-3">{{ visitor.code }}</td>
                         <td class="pt-3">{{ visitor.gender }}</td>
                         <td class="pt-3">{{ visitor.time}}</td>
-                        <td> <button class="btn" @click="del(index)"><i class="ri-delete-bin-6-fill fs-9"></i></button></td>
+                        <td> <button class="btn" @click="del(index)"><i class="ri-delete-bin-6-fill fs-9 text-danger"></i></button></td>
                     </tr>
                 </tbody>
                 
