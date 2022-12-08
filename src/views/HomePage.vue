@@ -37,7 +37,7 @@
                 <thead class="bg-secondary text-light">
                     <tr>
                     <!-- <th scope="col">Status</th> -->
-                    <th scope="col">Visitor's name</th>
+                    <th scope="col">Name</th>
                     <th scope="col">Code</th>
                     <th scope="col">Gender</th>
                     <th scope="col">Time</th>
