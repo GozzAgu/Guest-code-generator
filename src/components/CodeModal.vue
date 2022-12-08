@@ -50,7 +50,8 @@ const getTime = () => {
 
 const getCode = () => {
     if(newVisitor.value.name.length > 2) {
-        code.value = Math.ceil(Math.random() * 10000) + 1;
+        code.value = Math.floor(Math.random() * 10000) + 1;
+
 
         newVisitor.value.code = code.value;
         newVisitor.value.time = getTime();
