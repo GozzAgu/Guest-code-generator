@@ -100,7 +100,32 @@ const visitors = ref([
         code: '2480',
         gender: 'Male',
         time: '10:45'
+    },
+    {
+        name: 'Vic',
+        code: '2923',
+        gender: 'Male',
+        time: '10:17'
+    },
+    {
+        name: 'Marcus',
+        code: '7390',
+        gender: 'Male',
+        time: '10:45'
+    },
+    {
+        name: 'Linda',
+        code: '6480',
+        gender: 'female',
+        time: '03:15'
+    },
+    {
+        name: 'Roselyn',
+        code: '8463',
+        gender: 'female',
+        time: '10:45'
     }
+
 ]);
 
 const isLoggedIn = ref(false);
