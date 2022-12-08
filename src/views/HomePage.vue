@@ -30,7 +30,11 @@
         <CodeModal @close="showModal = false" v-if="showModal" @onSubmit="newGuest"/>
 
         <h3 class="mt-5 mb-4 text-start"><i class="ri-draft-line text-primary"></i> Guest Log </h3>
-        <input v-model="search" class="search mb-4" placeholder="search for guest..."/>
+
+        <div class="search-div d-flex border">
+            <i class="ri-search-2-line ps-2 pe-1 pt-1"></i>
+            <input v-model="search" class="search mb-4" placeholder="search for guest..."/>
+        </div>
 
         <div class="mt-1 shadow">
             <table class="table table-striped table-hover">
@@ -128,7 +132,19 @@ const filterVisitors = computed(() => {
     width: 50px;
     cursor: pointer;
 }
-.search {
-    width: 100%
+
+.search-div {
+    height: 32px;
+    .search {
+        width: 100%;
+        border: none;
+        height: 30px;
+    }
+    .search:focus {
+        width: 100%;
+        outline: none;
+        height: 30px;
+    }
 }
+
 </style>
