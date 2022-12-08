@@ -31,7 +31,7 @@
 
         <h3 class="mt-5 mb-4 text-start"><i class="ri-draft-line text-primary"></i> Guest Log </h3>
 
-        <div class="search-div d-flex border">
+        <div class="search-div d-flex border mb-4">
             <i class="ri-search-2-line ps-2 pe-1 pt-1"></i>
             <input v-model="search" class="search mb-4" placeholder="search for guest..."/>
         </div>
