@@ -30,6 +30,7 @@
         <CodeModal @close="showModal = false" v-if="showModal" @onSubmit="newGuest"/>
 
         <h3 class="mt-5 text-start"><i class="ri-draft-line"></i> Guest Log </h3>
+        <input v-model="search" class="search mb-2" placeholder="search for guest..."/>
 
         <div class="mt-1 shadow">
             <table class="table table-striped table-hover">
@@ -40,17 +41,20 @@
                     <th scope="col">Code</th>
                     <th scope="col">Gender</th>
                     <th scope="col">Time</th>
+                    <th></th>
                     </tr>
                 </thead>
-                <tbody v-for="visitor in visitors" :key="visitor">
+                <tbody v-for="(visitor, index) in filterVisitors" :key="visitor">
                     <tr class="mb-5">
                         <!-- <td>{{ visitor.status }}</td> -->
                         <td>{{ visitor.name }}</td>
                         <td>{{ visitor.code }}</td>
                         <td>{{ visitor.gender }}</td>
                         <td>{{ visitor.time}}</td>
+                        <button class="btn btn-danger" @click="del(index)">Delete</button>
                     </tr>
                 </tbody>
+                
             </table>
         </div>
     </div>
@@ -62,7 +66,7 @@
 <script setup>
 import { useStore } from '@/store/store';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router';
 import CodeModal from '@/components/CodeModal.vue'
 
@@ -80,7 +84,16 @@ onMounted(() => {
 
 const showModal = ref(false)
 
-const visitors = ref([]);
+const search = ref('');
+
+const visitors = ref([
+    {
+        name: 'Gozie',
+        code: '2480',
+        gender: 'Male',
+        time: '10:45'
+    }
+]);
 
 const isLoggedIn = ref(false);
 const router = useRouter();
@@ -97,11 +110,25 @@ const newGuest = (newVisitor) => {
     visitors.value.push(newVisitor)
 }
 
+const del = (index) => {
+    if(index > -1) {
+        visitors.value.splice(index, 1);
+    }
+}
+
+const filterVisitors = computed(() => {
+    return visitors.value.filter((visitor) => {
+        return visitor.name.match(search.value);
+    })
+})
 </script>
 
 <style scoped lang="scss">
 .logo {
     width: 50px;
     cursor: pointer;
+}
+.search {
+    width: 100%
 }
 </style>
