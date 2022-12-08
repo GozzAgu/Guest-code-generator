@@ -15,7 +15,7 @@
         </div>
         
         <div class="d-flex justify-content-between">
-            <button @click="showModal = true" class="shadow-sm btn btn-light mt-3 mb-3 col-4 col-lg-2 text-secondary">
+            <button @click="showModal = true" class="shadow-sm btn btn-light mt-3 mb-3 col-5 col-lg-2 text-secondary">
                 <i class="ri-user-add-fill"></i> New Guest
             </button>
             <router-link to="/chat" class="mt-4">

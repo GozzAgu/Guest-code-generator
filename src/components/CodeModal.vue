@@ -3,7 +3,7 @@
     <div class="mod shadow-lg card p-3 col-8 col-lg-4 ms-auto me-auto">
         <div class="d-flex mb-2">
             <h6 class="mt-2">Generate guest code</h6>
-            <i @click="close" class="ri-close-circle-fill ms-auto fs-3 text-danger"></i>
+            <i @click="close" class="ri-close-circle-fill ms-auto fs-1 text-danger"></i>
         </div>
         <div class="d-flex">
             <input placeholder="Guest name..." class="col-5 ms-auto me-auto mb-3" v-model="newVisitor.name"/>
