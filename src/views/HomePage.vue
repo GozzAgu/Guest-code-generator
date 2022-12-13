@@ -25,6 +25,7 @@
 
         <div class="mt-3 border-bottom">
             <h3>Total Guests ({{ visitors.length }}) </h3>
+            <p>Selected Guests ({{checked.length}})</p>
         </div>
 
         <CodeModal @close="showModal = false" v-if="showModal" @onSubmit="newGuest"/>
@@ -37,8 +38,6 @@
                 <input v-model="search" class="search mb-4" placeholder="search for guest..."/>
             </div>
         </div>
-
-       
 
         <div class="mt-1 shadow">
             <table class="table table-striped table-hover">
@@ -54,7 +53,7 @@
                 </thead>
                 <tbody v-for="(visitor, index) in filterVisitors" :key="visitor">
                     <tr class="mb-5">
-                        <td class="pt-3"><input type="checkbox"/></td>
+                        <td class="pt-3"><input :value="visitor" v-model="checked" type="checkbox"/></td>
                         <td class="pt-3">{{ visitor.name }}</td>
                         <td class="pt-3">{{ visitor.code }}</td>
                         <td class="pt-3">{{ visitor.gender }}</td>
@@ -91,7 +90,7 @@ onMounted(() => {
 });
 
 const showModal = ref(false)
-
+const checked = ref([]);
 const search = ref('');
 
 const visitors = ref([
@@ -107,25 +106,6 @@ const visitors = ref([
         gender: 'Male',
         time: '10:17'
     },
-    {
-        name: 'Marcus',
-        code: '7390',
-        gender: 'Male',
-        time: '10:45'
-    },
-    {
-        name: 'Linda',
-        code: '6480',
-        gender: 'female',
-        time: '03:15'
-    },
-    {
-        name: 'Roselyn',
-        code: '8463',
-        gender: 'female',
-        time: '10:45'
-    }
-
 ]);
 
 const isLoggedIn = ref(false);
