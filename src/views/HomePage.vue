@@ -126,6 +126,7 @@ const newGuest = (newVisitor) => {
 const del = (index) => {
     if(index > -1) {
         visitors.value.splice(index, 1);
+        checked.value.splice(index, 1)
     }
 }
 
