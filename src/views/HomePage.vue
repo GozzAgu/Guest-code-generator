@@ -125,6 +125,7 @@ const newGuest = (newVisitor) => {
 
 const del = (index) => {
     if(index > -1) {
+        alert('Are you sure you want to delete guest?');
         visitors.value.splice(index, 1);
         checked.value.splice(index, 1)
     }
